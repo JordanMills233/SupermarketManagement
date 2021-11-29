@@ -49,18 +49,18 @@ a, .btn-link {
         top: 0.5rem;
     }
 
-    @media print {
-        body * {
-            visibility: hidden;
-        }
-
-        #printarea, #printarea * {
-            visibility: visible;
-        }
-
-        #printarea {
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
+@media print {
+    body * {
+        visibility: hidden;
     }
+
+    #printarea, #printarea * {
+        visibility: visible;
+    }
+
+    #printarea {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
