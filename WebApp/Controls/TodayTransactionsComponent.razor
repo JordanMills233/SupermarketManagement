@@ -11,16 +11,16 @@
                 <th>Qty Before</th>
                 <th>Qty Sold</th>
                 <th>Qty After</th>
-                <th>Total</th>
+                <th>Sold Amt</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var tran in transactions)
+            @foreach(var tran in transactions)
             {
                 <tr>
                     <td>@tran.CashierName</td>
                     <td>@tran.ProductName</td>
-                    <td>@tran.Timestamp.ToString("dd/MM HH:mm")</td>
+                    <td>@tran.Timestamp.ToString("MM/dd hh:mm")</td>
                     <td>@tran.BeforeQty</td>
                     <td>@tran.SoldQty</td>
                     <td>@(tran.BeforeQty - tran.SoldQty)</td>
@@ -30,7 +30,6 @@
         </tbody>
     </table>
 }
-
 
 @code {
     private IEnumerable<Transaction> transactions;

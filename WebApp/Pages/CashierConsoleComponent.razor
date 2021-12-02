@@ -1,6 +1,5 @@
 ﻿@page "/cashier_console"
-@attribute [Authorize(Policy ="CashierOnly")]
-
+@attribute [Authorize(Policy = "CashierOnly")]
 
 @if (!string.IsNullOrWhiteSpace(cashierName))
 {
@@ -24,6 +23,7 @@
                                   OnProductSold="SellProduct"></SellProductComponent>
         </div>
         <div class="col">
+            <br/>
             <TodayTransactionsComponent @ref="transactionComponent"></TodayTransactionsComponent>
         </div>
     </div>
