@@ -1,4 +1,5 @@
 ﻿@page "/editproduct/{productId}"
+@attribute [Authorize(Policy = "AdminOnly")]
 
 @inject NavigationManager NavigationManager
 @inject UseCases.IAddProductUseCase AddProductUseCase
@@ -48,8 +49,8 @@
 
 
 @code {
-        [Parameter]
-        public string ProductId { get; set; }
+    [Parameter]
+    public string ProductId { get; set; }
 
     private Product product;
 
@@ -68,10 +69,11 @@
         if (int.TryParse(this.ProductId, out int IProductId))
         {
             var prod = GetProductByIdUseCase.Execute(IProductId);
-            this.product = new Product {
+            this.product = new Product
+            {
                 ProductId = prod.ProductId,
                 Name = prod.Name,
-                CategoryId = prod.CategoryId, 
+                CategoryId = prod.CategoryId,
                 Price = prod.Price,
                 Quantity = prod.Quantity
             };

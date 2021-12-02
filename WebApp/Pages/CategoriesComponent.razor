@@ -1,4 +1,5 @@
 ﻿@page "/categories"
+@attribute [Authorize(Policy = "AdminOnly")]
 
 @inject NavigationManager NavigationManager
 @inject UseCases.IViewCategoriesUseCase ViewCategoryUseCase
@@ -24,7 +25,7 @@
                     <td>@category.Description</td>
                     <td>
                         <button type="button" @onclick="@(() => EditCategory(category))" class="btn btn-link">Edit</button>
-                        
+
                         <button type="button" @onclick="@(() => DeleteCategory(category.CategoryId))" class="btn btn-link">Delete</button>
                     </td>
                 </tr>
@@ -32,7 +33,7 @@
         </tbody>
     </table>
 }
-<br/>
+<br />
 <button type="button" @onclick="OnClickAddCategory" class="btn btn-primary">Add Category</button>
 
 
